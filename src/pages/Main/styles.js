@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 export const Container = styled.div`
   max-width: 700px;
@@ -42,9 +42,20 @@ export const Form = styled.form`
   }
 `;
 
-export const SubmitButton = styled.button.attrs({
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+`;
+
+export const SubmitButton = styled.button.attrs((props) => ({
   type: 'submit',
-})`
+  disabled: props.loading,
+}))`
   background-color: #7159c1;
   border: 0;
   padding: 0 15px;
@@ -57,19 +68,46 @@ export const SubmitButton = styled.button.attrs({
 
   transition: filter 0.2s, box-shadow 0.2s;
 
-  svg {
-    transition: transform 0.6s;
+  &[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
+
+  ${(props) =>
+    props.loading &&
+    css`
+      svg {
+        animation: ${rotate} 1.5s linear infinite;
+      }
+    `}
 
   &:hover {
     filter: brightness(0.93);
-
-    svg {
-      transform: rotate(360deg);
-    }
   }
 
   &:active {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  }
+`;
+
+export const List = styled.ul`
+  list-style: none;
+  margin-top: 30px;
+
+  li {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & + li {
+      border-top: 1px solid #ddd;
+    }
+
+    a {
+      color: #7159c1;
+      text-decoration: none;
+    }
   }
 `;

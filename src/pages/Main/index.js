@@ -1,22 +1,51 @@
 import React, { Component } from 'react';
-import { FaGithubAlt, FaPlus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 
 import api from '../../services/api';
 import { Toast } from '../../services/sweetAlert';
-import { Container, Form, SubmitButton } from './styles';
+import { Container, Form, SubmitButton, List } from './styles';
 
 class Main extends Component {
   state = {
     newRepo: '',
     repositories: [],
+    loading: false,
   };
+
+  // Carrega do localStorage
+  componentDidMount() {
+    const repositories = localStorage.getItem('repositories');
+    if (repositories) {
+      this.setState({
+        repositories: JSON.parse(repositories),
+      });
+    }
+  }
+
+  // Salva no localStorage antes de atualizar
+  componentDidUpdate(_, previousState) {
+    if (previousState.repositories !== this.state.repositories) {
+      localStorage.setItem(
+        'repositories',
+        JSON.stringify(this.state.repositories)
+      );
+    }
+  }
 
   handleInput = (event) => {
     this.setState({ newRepo: event.target.value });
   };
 
   handleSubmit = async (event) => {
+    if (this.state.loading) {
+      return;
+    }
+
     event.preventDefault();
+
+    this.setState({ loading: true });
 
     await api
       .get(`/repos/${this.state.newRepo}`)
@@ -32,6 +61,8 @@ class Main extends Component {
 
         this.setState({
           repositories: [...this.state.repositories, data],
+          newRepo: '',
+          loading: false,
         });
       })
       .catch((error) => {
@@ -39,11 +70,12 @@ class Main extends Component {
           icon: 'error',
           title: 'Repositório não encontrado',
         });
+        this.setState({ loading: false });
       });
   };
 
   render() {
-    const { newRepo } = this.state;
+    const { newRepo, repositories, loading } = this.state;
 
     return (
       <Container>
@@ -60,10 +92,25 @@ class Main extends Component {
             value={newRepo}
           />
 
-          <SubmitButton>
-            <FaPlus color="#FFF" size={14} />
+          <SubmitButton loading={loading ? 'loading' : undefined}>
+            {loading ? (
+              <FaSpinner color="#FFF" size={14} />
+            ) : (
+              <FaPlus color="#FFF" size={14} />
+            )}
           </SubmitButton>
         </Form>
+
+        <List>
+          {repositories.map((repository) => (
+            <li key={repository.name}>
+              <span>{repository.name}</span>
+              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
+                Detalhes
+              </Link>
+            </li>
+          ))}
+        </List>
       </Container>
     );
   }
