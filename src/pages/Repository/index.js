@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
+import Container from '../../components/Container';
 import api from '../../services/api';
-import { Loading } from './styles';
+import { Loading, Owner, IssueList } from './styles';
 import { FaSpinner } from 'react-icons/fa';
 
 class Repository extends Component {
@@ -48,12 +50,40 @@ class Repository extends Component {
     if (loading) {
       return (
         <Loading>
-          <FaSpinner size={42} />
+          <FaSpinner size={72} />
         </Loading>
       );
     }
 
-    return <h1>Repo</h1>;
+    return (
+      <Container>
+        <Owner>
+          <Link to="/">Voltar aos repositórios</Link>
+          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+          <h1>{repository.name}</h1>
+          <p>{repository.description}</p>
+        </Owner>
+
+        <IssueList>
+          {issues.map((issue) => (
+            <li key={String(issue.id)}>
+              <img src={issue.user.avatar_url} alt={issue.user.login} />
+              <div>
+                <strong>
+                  <a href={issue.html_url} target="_blank">
+                    {issue.title}
+                  </a>
+                  {issue.labels.map((label) => (
+                    <span key={String(label.id)}>{label.name}</span>
+                  ))}
+                </strong>
+                <p>{issue.user.login}</p>
+              </div>
+            </li>
+          ))}
+        </IssueList>
+      </Container>
+    );
   }
 }
 

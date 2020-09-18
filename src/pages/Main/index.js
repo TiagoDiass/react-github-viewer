@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { FaGithubAlt, FaPlus, FaSpinner } from 'react-icons/fa';
 
+import Container from '../../components/Container';
 import api from '../../services/api';
 import { Toast } from '../../services/sweetAlert';
-import { Container, Form, SubmitButton, List } from './styles';
+import { Form, SubmitButton, List } from './styles';
 
 class Main extends Component {
   state = {
@@ -87,7 +88,7 @@ class Main extends Component {
         <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            placeholder="Adicionar repositório"
+            placeholder="Adicionar repositório (Ex: facebook/react)"
             onChange={this.handleInput}
             value={newRepo}
           />
