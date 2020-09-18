@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <img height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/768px-React-icon.svg.png">
+  React Github Overview 
+  <img height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/768px-React-icon.svg.png">
+</h1>
 
-## Available Scripts
+<h4 align="center">
+  A webapp developed with ReactJS to search for repositories and take a look at its data
+</h4>
 
-In the project directory, you can run:
+<p align="center">
+  <img alt="Repo's top language" src="https://img.shields.io/static/v1?label=Main%20technology&message=JavaScript%20-%2093.9%&style=for-the-badge&color=61DBFB&labelColor=000000">
+  <img alt="Repository size" src="https://img.shields.io/static/v1?label=Repo%20size&message=850%20KB&style=for-the-badge&color=61DBFB&labelColor=000000">
+</p>
 
-### `yarn start`
+<p align="center">
+  <a href="#technologies">Used Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#objective">Project's goal</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#final-result">Final Result</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#how-to-use">How to Run</a>
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;![](Preview.gif)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h2 id="techonologies" name="technologies">
+  :rocket: Used Technologies
+</h2>
 
-### `yarn test`
+- [ReactJS](https://pt-br.reactjs.org/) to build the app in general
+- [Styled Components](https://styled-components.com/) to style the app
+- [React Router](https://reactrouter.com/) to make multiple routes
+- [Sweet Alert](https://sweetalert.js.org/) to make some toast messages
+- Github API to get all the data that we need
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2 id="objective" name="objective">
+  :dart: Project's goal
+</h2>
 
-### `yarn build`
+The aim of this project was practicing React, a great tech that I've started learning recently, with this app, I could practice some concepts that I've learned at first with Vue.js, these concepts are things like props, conditional rendering, components managment in React, styling with styled components, I enjoyed it really much and I'll keep learning React for sure, I really liked it!
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2 id="final-result" name="final-result">
+  :clipboard: Resultado final
+</h2>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### [You can check the final result clicking here](https://react-github-viewer.netlify.app/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2 id="how-to-use" name="how-to-use">
+  :information_source: How to Run
+</h2>
 
-### `yarn eject`
+Follow the steps below to run the project in your machine, before it all, you need to have the Git, Node.js and Yarn installed on your computer, then follow the steps below:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# Clone the repo
+$ git clone https://github.com/TiagoDiass/react-github-viewer.git
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Enter in the directory
+$ cd react-github-viewer
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Install the dependencies
+$ yarn
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Start the app
+$ yarn start
+```
 
-## Learn More
+After following these steps, your terminal will show you what port is the app running on(it's usually the 3000), so you'll just need to open your browser
+and open `localhost:3000`. To stop the app just go back to the terminal and press <kbd>CTRL</kbd>+<kbd>C</kbd>.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Hope you enjoyed this project :smiley:<br>
+:wave: [Get in touch!](https://www.linkedin.com/in/tiagodiass)
 
-### Code Splitting
+### Author: Tiago Dias
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
