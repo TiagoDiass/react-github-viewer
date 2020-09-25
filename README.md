@@ -43,7 +43,7 @@
 The aim of this project was practicing React, a great tech that I've started learning recently, with this app, I could practice some concepts that I've learned at first with Vue.js, these concepts are things like props, conditional rendering, components managment in React, styling with styled components, I enjoyed it really much and I'll keep learning React for sure, I really liked it!
 
 <h2 id="final-result" name="final-result">
-  :clipboard: Resultado final
+  :clipboard: Final Result
 </h2>
 
 ### [You can check the final result clicking here](https://react-github-viewer.netlify.app/)
